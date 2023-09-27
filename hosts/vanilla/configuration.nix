@@ -152,6 +152,9 @@ in
       android-tools
       appimage-run
       caddy
+      logseq
+      anytype
+      thunderbird
     ];
   };
 
