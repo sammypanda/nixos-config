@@ -161,6 +161,11 @@ in
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  environment = {
+    etc."containers/registries.conf".text = import ../../dotfiles/shared/registries.nix {};
+    etc."containers/policy.json".text = import ../../dotfiles/shared/policy.nix {};
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
