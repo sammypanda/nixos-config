@@ -24,7 +24,6 @@ jobs:
       # Run a set of commands using the runners shell
       - name: Dry-run build to verify
         run: |
-          nix-channel --add https://nixos.org/channels/nixos-unstable
-          nix-channel --update
-          nix flake check --extra-experimental-features 'nix-command flakes' --impure github:sammypanda/nixos-config
+          nix flake check --extra-experimental-features 'nix-command flakes' --impure github:sammypanda/nixos-config -I nixos-unstable=channel:nixos-unstable
+
 
