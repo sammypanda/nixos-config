@@ -286,9 +286,11 @@ in
     allowedUDPPorts = [ 25565 8000 ];
     allowedTCPPortRanges = [
       { from = 2234; to = 2239; }
+      { from = 1716; to = 1764; }
     ];
     allowedUDPPortRanges = [
       { from = 2234; to = 2239; }
+      { from = 1716; to = 1764; }
     ];
     # Or disable the firewall altogether.
     enable = true;
