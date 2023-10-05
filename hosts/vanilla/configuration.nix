@@ -221,6 +221,7 @@ in
      gpu-screen-recorder
      libglvnd # potential openglFull dependency (GLES3)
      libGL # bindings for libglvnd
+     gnomeExtensions.gsconnect
   ];
 
   fonts = {
