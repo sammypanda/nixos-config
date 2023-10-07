@@ -126,6 +126,7 @@ in
       firefox
       nicotine-plus
       discord
+      discord-screenaudio # community patches for linux screen sharing
       lutris
       yt-dlp
       rhythmbox
