@@ -223,7 +223,7 @@ in
      libGL # bindings for libglvnd
      gnomeExtensions.gsconnect
      avahi # mDNS resolution
-     (libsForQt5.callPackage ../../modules/shared/discord-screenaudio { }) # temporary: awaiting official package # community patches for linux screen sharing
+     (qt6Packages.callPackage ../../modules/shared/discord-screenaudio { }) # temporary: awaiting official package # community patches for linux screen sharing
   ];
 
   fonts = {
