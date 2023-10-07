@@ -272,7 +272,10 @@ in
   # List services that you want to enable:
   services.flatpak.enable = true;
   services.openldap.enable = true;
-  services.avahi.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns = true; # name-service-switch plug-in
+  };
 
   # Nix settings
   nix.settings = {
