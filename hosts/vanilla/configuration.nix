@@ -222,6 +222,7 @@ in
      libglvnd # potential openglFull dependency (GLES3)
      libGL # bindings for libglvnd
      gnomeExtensions.gsconnect
+     avahi # mDNS resolution
   ];
 
   fonts = {
@@ -271,6 +272,7 @@ in
   # List services that you want to enable:
   services.flatpak.enable = true;
   services.openldap.enable = true;
+  services.avahi.enable = true;
 
   # Nix settings
   nix.settings = {
