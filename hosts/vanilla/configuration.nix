@@ -155,6 +155,8 @@ in
       logseq
       anytype
       thunderbird
+      python311Packages.pypresence
+      tauon
     ];
   };
 
