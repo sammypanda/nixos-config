@@ -7,6 +7,7 @@
 let
   aagl-gtk-on-nix = import (builtins.fetchTarball "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz");
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+  tauon = pkgs.tauon.overrideAttrs (oldAttrs: { withDiscordRPC = true; });
 in
 {
   imports =
@@ -155,7 +156,6 @@ in
       logseq
       anytype
       thunderbird
-      python311Packages.pypresence
       tauon
     ];
   };
