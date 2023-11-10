@@ -7,7 +7,6 @@
 let
   aagl-gtk-on-nix = import (builtins.fetchTarball "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz");
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-  tauon = pkgs.tauon.overrideAttrs (oldAttrs: { withDiscordRPC = true; });
 in
 {
   imports =
@@ -117,6 +116,13 @@ in
   #       		});
   #       	})
   #       ];
+
+  # Nixpkg Overrides
+  nixpkgs.config.packageOverrides = pkgs: { 
+    tauon = pkgs.tauon.override {
+      withDiscordRPC = true; 
+    }; 
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sammy = {
