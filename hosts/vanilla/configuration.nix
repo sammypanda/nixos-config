@@ -163,6 +163,7 @@ in
       anytype
       thunderbird
       tauon
+      sunshine
     ];
   };
 
