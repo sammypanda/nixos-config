@@ -286,6 +286,7 @@ in
   services.avahi = {
     enable = true;
     nssmdns = true; # name-service-switch plug-in
+    publish.userServices = true; # multi-user
   };
 
   # Nix settings
