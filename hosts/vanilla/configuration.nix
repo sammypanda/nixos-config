@@ -164,6 +164,7 @@ in
       thunderbird
       tauon
       sunshine
+      proton-caller
     ];
   };
 
