@@ -235,6 +235,7 @@ in
      avahi # mDNS resolution
      (qt6Packages.callPackage ../../modules/shared/discord-screenaudio { }) # temporary: awaiting official package # community patches for linux screen sharing
      bluez
+     tmux
   ];
 
   fonts = {
