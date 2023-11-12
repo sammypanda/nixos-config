@@ -297,8 +297,8 @@ in
 
   # Open ports in the firewall.
   networking.firewall = {
-    allowedTCPPorts = [ 25565 8000 ];
-    allowedUDPPorts = [ 25565 8000 ];
+    allowedTCPPorts = [ 25565 8000 47989 47984 ];
+    allowedUDPPorts = [ 25565 8000 48010 47998 47999 47800 ];
     allowedTCPPortRanges = [
       { from = 2234; to = 2239; }
       { from = 1716; to = 1764; }
