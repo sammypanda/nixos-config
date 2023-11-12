@@ -309,7 +309,7 @@ in
       { from = 1716; to = 1764; }
     ];
     # Or disable the firewall altogether.
-    enable = true;
+    enable = false;
   };
 
   networking.interfaces.enp38s0 = {
