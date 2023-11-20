@@ -165,6 +165,7 @@ in
       tauon
       sunshine
       proton-caller
+      syncthing
     ];
   };
 
