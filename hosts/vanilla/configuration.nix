@@ -166,6 +166,7 @@ in
       sunshine
       proton-caller
       syncthing
+      webcord-vencord
     ];
   };
 
