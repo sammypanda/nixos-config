@@ -169,7 +169,7 @@ in
       sunshine
       proton-caller
       syncthing
-      webcord-vencord
+      unstable.webcord-vencord
     ];
   };
 
