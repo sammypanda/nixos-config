@@ -5,7 +5,10 @@
 { config, pkgs, inputs, ... }:
 
 let
-  aagl-gtk-on-nix = import (builtins.fetchTarball "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz");
+  aagl-gtk-on-nix = import (builtins.fetchTarball {
+    url = "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz";
+    sha256 = "1lbl8n3kys2nyzd4w492qimbc20vgxcglxvdbvmnz2xgxndbmbll";
+  });
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in
 {
@@ -118,10 +121,10 @@ in
   #       ];
 
   # Nixpkg Overrides
-  nixpkgs.config.packageOverrides = pkgs: { 
+  nixpkgs.config.packageOverrides = pkgs: {
     tauon = pkgs.tauon.override {
-      withDiscordRPC = true; 
-    }; 
+      withDiscordRPC = true;
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
