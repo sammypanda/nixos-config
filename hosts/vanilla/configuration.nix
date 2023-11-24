@@ -125,6 +125,12 @@ in
     tauon = pkgs.tauon.override {
       withDiscordRPC = true;
     };
+
+    retroarch = pkgs.retroarch.override {
+      cores = with pkgs.libretro; [
+        dolphin
+      ];
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -176,12 +182,6 @@ in
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  nixpkgs.config.retroarch = {
-    enableDolphin = true;
-    enableMGBA = true;
-    enableMAME = true;
-  };  
 
   environment = {
     etc."containers/registries.conf".text = import ../../dotfiles/shared/registries.nix {};
