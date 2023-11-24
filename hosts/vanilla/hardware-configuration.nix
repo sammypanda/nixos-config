@@ -66,4 +66,7 @@
   # Vulkan
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
+
+  # Controllers
+  hardware.steam-hardware.enable = true;
 }
