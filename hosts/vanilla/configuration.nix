@@ -170,11 +170,18 @@ in
       proton-caller
       syncthing
       unstable.webcord-vencord
+      retroarch
     ];
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.config.retroarch = {
+    enableDolphin = true;
+    enableMGBA = true;
+    enableMAME = true;
+  };  
 
   environment = {
     etc."containers/registries.conf".text = import ../../dotfiles/shared/registries.nix {};
