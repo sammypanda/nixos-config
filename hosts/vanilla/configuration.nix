@@ -177,6 +177,7 @@ in
       syncthing
       unstable.webcord-vencord
       retroarch
+      yuzu-early-access
     ];
   };
 
