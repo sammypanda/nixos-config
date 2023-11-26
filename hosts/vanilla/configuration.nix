@@ -6,8 +6,7 @@
 
 let
   aagl-gtk-on-nix = import (builtins.fetchGit {
-    url = "ssh://git@github.com:ezKEa/aagl-gtk-on-nix.git";
-    ref = "main";
+    url = "https://github.com/ezKEa/aagl-gtk-on-nix.git";
   });
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in
