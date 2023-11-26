@@ -177,7 +177,6 @@ in
       unstable.webcord-vencord
       retroarch
       yuzu-early-access
-      mpvpaper
     ];
   };
 
