@@ -5,9 +5,9 @@
 { config, pkgs, inputs, ... }:
 
 let
-  aagl-gtk-on-nix = import (builtins.fetchTarball {
-    url = "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz";
-    sha256 = "1xwffdqqn6q8jggdg7drj1r5qx0f1alrcds6camx5vyrg31lpix2";
+  aagl-gtk-on-nix = import (builtins.fetchGit {
+    url = "ssh://git@github.com:ezKEa/aagl-gtk-on-nix.git";
+    ref = "main";
   });
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in
