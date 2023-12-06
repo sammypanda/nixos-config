@@ -239,7 +239,7 @@ in
      podman
      distrobox
      glxinfo
-     unstable.mission-center # viewing all the stats
+     mission-center # viewing all the stats
      gpu-screen-recorder
      libglvnd # potential openglFull dependency (GLES3)
      libGL # bindings for libglvnd
