@@ -136,7 +136,7 @@ in
   users.users.sammy = {
     isNormalUser = true;
     description = "sammy";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" ];
     packages = with pkgs; [
       firefox
       nicotine-plus
@@ -291,6 +291,11 @@ in
     package = pkgs.openjdk19;
   };
 
+  # ADB + etc
+  programs.adb = {
+    enable = true;
+  };
+
   # Other systemd stuff
   systemd.tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.hip}" ];
 
@@ -301,6 +306,11 @@ in
     enable = true;
     nssmdns = true; # name-service-switch plug-in
     publish.userServices = true; # multi-user
+  };
+  services.udev = {
+    packages = [
+      pkgs.android-udev-rules
+    ];
   };
 
   # Nix settings
