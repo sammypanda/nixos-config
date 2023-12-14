@@ -176,7 +176,7 @@ in
       syncthing
       unstable.webcord-vencord
       retroarch
-      yuzu-early-access
+      unstable.yuzu-early-access
       xdotool # for window swapping reasons (sunshine game streaming)
     ];
   };
