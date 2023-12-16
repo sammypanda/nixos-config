@@ -178,6 +178,7 @@ in
       retroarch
       unstable.yuzu-early-access
       xdotool # for window swapping reasons (sunshine game streaming)
+      protontricks # to launch steam games (sunshine game streaming)
     ];
   };
 
