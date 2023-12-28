@@ -130,6 +130,14 @@ in
         dolphin
       ];
     };
+
+    vscodium = pkgs.vscode-with-extensions.override {
+        vscode = pkgs.vscodium;
+	vscodeExtensions = with pkgs.vscode-extensions; [
+	  enkia.tokyo-night
+	  redhat.java
+	];
+      };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -144,7 +152,6 @@ in
       lutris
       yt-dlp
       rhythmbox
-      vscode
       stremio
       blender
       godot_4
@@ -178,9 +185,10 @@ in
       retroarch
       unstable.yuzu-early-access
       xdotool # for window swapping reasons (sunshine game streaming)
-      steam-run # to launch steam games (sunshine game streaming)
       vscode-extensions.redhat.java # good for mc plugin dev
       aseprite # pixel art!
+      steam-run # to launch steam games (sunshine game streaming) 
+      vscodium
     ];
   };
 
