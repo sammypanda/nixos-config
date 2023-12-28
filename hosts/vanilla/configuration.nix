@@ -180,6 +180,7 @@ in
       xdotool # for window swapping reasons (sunshine game streaming)
       steam-run # to launch steam games (sunshine game streaming)
       vscode-extensions.redhat.java # good for mc plugin dev
+      aseprite # pixel art!
     ];
   };
 
