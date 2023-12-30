@@ -9,6 +9,12 @@ let
     url = "https://github.com/ezKEa/aagl-gtk-on-nix.git";
   });
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+  system = builtins.currentSystem;
+  extensions = (import (builtins.fetchGit {
+    url = "https://github.com/nix-community/nix-vscode-extensions";
+    ref = "refs/heads/master";
+    rev = "c43d9089df96cf8aca157762ed0e2ddca9fcd71e";
+  })).extensions.${system};
 in
 {
   imports =
@@ -132,12 +138,14 @@ in
     };
 
     vscodium = pkgs.vscode-with-extensions.override {
-        vscode = pkgs.vscodium;
-	vscodeExtensions = with pkgs.vscode-extensions; [
-	  enkia.tokyo-night
-	  redhat.java
-	];
-      };
+      vscode = pkgs.vscodium;
+
+	    vscodeExtensions = with pkgs extensions;  [
+        pkgs.vscode-extensions.enkia.tokyo-night
+        pkgs.vscode-extensions.redhat.java
+        extensions.vscode-marketplace.icrawl.discord-vscode
+	    ];
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

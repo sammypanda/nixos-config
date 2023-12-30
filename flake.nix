@@ -3,9 +3,10 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, nix-vscode-extensions }:
   let
     system = "x86_64-linux";
 
