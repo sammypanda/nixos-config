@@ -131,13 +131,13 @@ in
       ];
     };
 
-    vscodium = pkgs.vscode-with-extensions.override {
-        vscode = pkgs.vscodium;
-	vscodeExtensions = with pkgs.vscode-extensions; [
-	  enkia.tokyo-night
-	  redhat.java
-	];
-      };
+    vscodium-fhs = pkgs.vscodium-fhs.override {
+      vscode = pkgs.vscodium-fhs;
+	    vscodeExtensions = with pkgs.vscode-extensions; [
+	      enkia.tokyo-night
+	      redhat.java
+	    ];
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
