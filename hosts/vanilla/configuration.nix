@@ -143,7 +143,7 @@ in
 	    vscodeExtensions = with pkgs extensions;  [
         pkgs.vscode-extensions.enkia.tokyo-night
         pkgs.vscode-extensions.redhat.java
-        extensions.vscode-marketplace.icrawl.discord-vscode
+        extensions.vscode-marketplace.leonardssh.vscord
 	    ];
     };
   };
