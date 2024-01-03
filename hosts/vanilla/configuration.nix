@@ -198,6 +198,8 @@ in
       aseprite # pixel art!
       steam-run # to launch steam games (sunshine game streaming) 
       vscodium
+      super-productivity # tracking tasks/hours
+      teams-for-linux # Microsoft Teams
     ];
   };
 
