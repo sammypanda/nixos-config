@@ -205,6 +205,12 @@ in
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  
+  # Allow EOL packages
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
+  ];
+
 
   environment = {
     etc."containers/registries.conf".text = import ../../dotfiles/shared/registries.nix {};
@@ -320,7 +326,7 @@ in
   };
 
   # Other systemd stuff
-  systemd.tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.hip}" ];
+  systemd.tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
 
   # List services that you want to enable:
   services.flatpak.enable = true;
