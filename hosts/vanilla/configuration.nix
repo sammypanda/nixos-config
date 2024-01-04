@@ -140,10 +140,11 @@ in
     vscodium = pkgs.vscode-with-extensions.override {
       vscode = pkgs.vscodium;
 
-	    vscodeExtensions = with pkgs extensions;  [
+	    vscodeExtensions = with pkgs; [
         pkgs.vscode-extensions.enkia.tokyo-night
         pkgs.vscode-extensions.redhat.java
         extensions.vscode-marketplace.leonardssh.vscord
+	vscode-extensions.devsense.phptools-vscode
 	    ];
     };
   };
