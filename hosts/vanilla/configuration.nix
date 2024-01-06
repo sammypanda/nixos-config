@@ -201,6 +201,7 @@ in
       vscodium
       super-productivity # tracking tasks/hours
       teams-for-linux # Microsoft Teams
+      sonixd # desktop subsonic player
     ];
   };
 
