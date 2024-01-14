@@ -68,4 +68,5 @@
 
   # Controllers
   hardware.steam-hardware.enable = true;
+  hardware.i2c.enable = true;
 }

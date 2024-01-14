@@ -28,7 +28,7 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.kernelModules = [ "amdgpu" ];
-  boot.kernelModules = [ "v4l2loopback" ];
+  boot.kernelModules = [ "v4l2loopback" "i2c-dev" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernel.sysctl = {
@@ -202,6 +202,7 @@ in
       super-productivity # tracking tasks/hours
       teams-for-linux # Microsoft Teams
       sonixd # desktop subsonic player
+      openrgb # controlling the colours!!
     ];
   };
 
@@ -341,6 +342,7 @@ in
   services.udev = {
     packages = [
       pkgs.android-udev-rules
+      pkgs.openrgb
     ];
   };
 
