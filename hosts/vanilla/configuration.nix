@@ -202,7 +202,7 @@ in
       super-productivity # tracking tasks/hours
       teams-for-linux # Microsoft Teams
       sonixd # desktop subsonic player
-      openrgb # controlling the colours!!
+      openrgb-with-all-plugins # controlling the colours!!
     ];
   };
 
