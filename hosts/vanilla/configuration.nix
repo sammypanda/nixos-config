@@ -203,6 +203,7 @@ in
       teams-for-linux # Microsoft Teams
       sonixd # desktop subsonic player
       openrgb-with-all-plugins # controlling the colours!!
+      virt-manager # virtual machines
     ];
   };
 
@@ -328,6 +329,11 @@ in
     enable = true;
   };
 
+  # DConf
+  programs.dconf = {
+    enable = true;
+  }
+
   # Other systemd stuff
   systemd.tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
 
@@ -345,6 +351,9 @@ in
       pkgs.openrgb
     ];
   };
+
+  # Enable virtualisation
+  virtualisation.libvirtd.enable = true;
 
   # Nix settings
   nix.settings = {
