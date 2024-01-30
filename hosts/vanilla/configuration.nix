@@ -332,7 +332,7 @@ in
   # DConf
   programs.dconf = {
     enable = true;
-  }
+  };
 
   # Other systemd stuff
   systemd.tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
