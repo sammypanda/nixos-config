@@ -166,10 +166,6 @@ in
       godot_4
       obs-studio
       prismlauncher
-      aagl-gtk-on-nix.anime-game-launcher
-      aagl-gtk-on-nix.anime-borb-launcher
-      aagl-gtk-on-nix.honkers-railway-launcher
-      aagl-gtk-on-nix.honkers-launcher
       yarn
       kid3
       r128gain
