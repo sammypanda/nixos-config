@@ -201,6 +201,7 @@ in
       openrgb-with-all-plugins # controlling the colours!!
       virt-manager # virtual machines
       beekeeper-studio # sql frontend
+      tg # telegram terminal client
     ];
   };
 
