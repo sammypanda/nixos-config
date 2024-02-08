@@ -352,6 +352,7 @@ in
 
   # Enable virtualisation
   virtualisation.libvirtd.enable = true;
+  virtualisation.waydroid.enable = true;
 
   # Nix settings
   nix.settings = {
