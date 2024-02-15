@@ -203,6 +203,7 @@ in
       virt-manager # virtual machines
       beekeeper-studio # sql frontend
       kotatogram-desktop # telegram client
+      gimp-with-plugins # image manipulation program
     ];
   };
 
