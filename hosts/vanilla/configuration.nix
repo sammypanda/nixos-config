@@ -199,6 +199,7 @@ in
       super-productivity # tracking tasks/hours
       teams-for-linux # Microsoft Teams
       sonixd # desktop subsonic player
+      feishin # desktop navidrome player
       openrgb-with-all-plugins # controlling the colours!!
       virt-manager # virtual machines
       beekeeper-studio # sql frontend
