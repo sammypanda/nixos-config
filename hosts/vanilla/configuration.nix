@@ -169,7 +169,7 @@ in
       prismlauncher
       yarn
       kid3
-      r128gain
+      unstable.rsgain
       gparted
       transmission-gtk
       wpsoffice
