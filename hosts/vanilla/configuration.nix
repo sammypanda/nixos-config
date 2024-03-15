@@ -127,10 +127,6 @@ in
 
   # Nixpkg Overrides
   nixpkgs.config.packageOverrides = pkgs: {
-    tauon = pkgs.tauon.override {
-      withDiscordRPC = true;
-    };
-
     retroarch = pkgs.retroarch.override {
       cores = with pkgs.libretro; [
         dolphin
@@ -183,7 +179,7 @@ in
       logseq
       anytype
       thunderbird
-      tauon
+      quodlibet-full
       sunshine
       proton-caller
       syncthing
