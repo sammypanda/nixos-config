@@ -96,15 +96,25 @@ in
   security.polkit.enable = true;
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    audio.enable = true;
+    
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
+    
+    pulse = {
+      enable = true;
+    };
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    wireplumber = {
+      enable = true;
+    };
+
+    # If you want to use JACK applications, uncomment this
+    jack = {
+      enable = true;
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -140,8 +150,14 @@ in
         pkgs.vscode-extensions.enkia.tokyo-night
         pkgs.vscode-extensions.redhat.java
         extensions.vscode-marketplace.leonardssh.vscord
-	vscode-extensions.devsense.phptools-vscode
+	      vscode-extensions.devsense.phptools-vscode
 	    ];
+    };
+
+    feishin = pkgs.feishin.override {
+      version = "0.6.0";
+
+      electron_24 = pkgs.electron_27;
     };
   };
 
@@ -201,6 +217,8 @@ in
       beekeeper-studio # sql frontend
       kotatogram-desktop # telegram client
       gimp-with-plugins # image manipulation program
+      pipecontrol
+      quodlibet
     ];
   };
 
@@ -217,6 +235,18 @@ in
   environment = {
     etc."containers/registries.conf".text = import ../../dotfiles/shared/registries.nix {};
     etc."containers/policy.json".text = import ../../dotfiles/shared/policy.nix {};
+    
+    # PipeWire
+    etc."pipewire/pipewire.conf.d/custom.conf".text = ''
+      context.properties = {
+        default.clock.rate = 96000
+        default.clock.allowed-rates = [ 44100 48000 88200 96000 176400 192000 352800 384000 705600 768000 ]
+      }
+
+      stream.properties = {
+        resample.quality = 10
+      }
+    '';
   };
 
   # List packages installed in system profile. To search, run:
