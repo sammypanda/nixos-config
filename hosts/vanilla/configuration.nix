@@ -8,7 +8,7 @@ let
   aagl-gtk-on-nix = import (builtins.fetchGit {
     url = "https://github.com/ezKEa/aagl-gtk-on-nix.git";
   });
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+  stable = import <nixos> { config = { allowUnfree = true; }; };
   system = builtins.currentSystem;
   extensions = (import (builtins.fetchGit {
     url = "https://github.com/nix-community/nix-vscode-extensions";
@@ -72,18 +72,29 @@ in
     LC_TIME = "en_AU.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  # Configure display/window/desktop
+  services = {
+    xserver = {
+      enable = true;
+      videoDrivers = [ "amdgpu" ];
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+      displayManager = {
+        defaultSession = "plasma";
+        sddm.enable = true;
+        sddm.wayland.enable = true;
+      };
 
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "au";
-    xkbVariant = "";
+      # Configure keymap in X11
+      xkb = {
+        layout = "au";
+        variant = ""; 
+      };
+    };
+
+    # Enable the KDE Desktop Environment.
+    desktopManager = {
+      plasma6.enable = true;
+    };
   };
 
   # Enable CUPS to print documents.
@@ -95,6 +106,21 @@ in
   security.rtkit.enable = true;
   security.polkit.enable = true;
   services.pipewire = {
+    extraConfig = {
+      pipewire."custom.conf" = {
+        context.objects = [
+          {
+            default.clock.rate = 96000;
+            default.clock.allowed-rates = [ 44100 48000 88200 96000 176400 192000 352800 384000 705600 768000 ];
+
+            stream.properties = {
+              resample.quality = 10;
+            };
+          }
+        ];
+      };
+    };
+
     enable = true;
     audio.enable = true;
     
@@ -114,6 +140,38 @@ in
     # If you want to use JACK applications, uncomment this
     jack = {
       enable = true;
+    };
+  };
+
+  # Container configuration
+  virtualisation.containers = {
+    enable = true;
+
+    registries = {
+      search = [ "registry.fedoraproject.org" "registry.access.redhat.com" "registry.centos.org" "docker.io" "quay.io" ];
+    };
+    policy = {
+      default = [{ type = "insecureAcceptAnything"; }];
+      transports = {
+        docker-daemon = {
+          "" = [{ type = "insecureAcceptAnything"; }];
+        };
+        "dir"= {
+          ""= [
+            {type="insecureAcceptAnything";}
+          ];
+        };
+        "containers-storage"= {
+          ""= [
+            {type="insecureAcceptAnything";}
+          ];
+        };
+        "docker" = {
+          "docker.io" = [
+            {type="insecureAcceptAnything";}
+          ];
+        };
+      };
     };
   };
 
@@ -181,7 +239,7 @@ in
       prismlauncher
       yarn
       kid3
-      unstable.rsgain
+      rsgain
       gparted
       transmission-gtk
       wpsoffice
@@ -199,9 +257,9 @@ in
       sunshine
       proton-caller
       syncthing
-      unstable.webcord-vencord
+      webcord-vencord
       retroarch
-      unstable.yuzu-early-access
+      stable.yuzu-early-access
       xdotool # for window swapping reasons (sunshine game streaming)
       vscode-extensions.redhat.java # good for mc plugin dev
       arrpc # for discord rich presence
@@ -216,7 +274,7 @@ in
       virt-manager # virtual machines
       beekeeper-studio # sql frontend
       kotatogram-desktop # telegram client
-      gimp-with-plugins # image manipulation program
+      stable.gimp-with-plugins # image manipulation program
       pipecontrol
       quodlibet
     ];
@@ -231,33 +289,12 @@ in
     "electron-24.8.6"
   ];
 
-
-  environment = {
-    etc."containers/registries.conf".text = import ../../dotfiles/shared/registries.nix {};
-    etc."containers/policy.json".text = import ../../dotfiles/shared/policy.nix {};
-    
-    # PipeWire
-    etc."pipewire/pipewire.conf.d/custom.conf".text = ''
-      context.properties = {
-        default.clock.rate = 96000
-        default.clock.allowed-rates = [ 44100 48000 88200 96000 176400 192000 352800 384000 705600 768000 ]
-      }
-
-      stream.properties = {
-        resample.quality = 10
-      }
-    '';
-  };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
      vim
      git
      tldr
-     gnome3.gnome-tweaks
-     gnome-extension-manager # not currently able to install things
-     gnome.dconf-editor
      wineWowPackages.stableFull
      wineWowPackages.waylandFull
      wine-wayland
@@ -304,7 +341,6 @@ in
      gpu-screen-recorder
      libglvnd # potential openglFull dependency (GLES3)
      libGL # bindings for libglvnd
-     gnomeExtensions.gsconnect
      avahi # mDNS resolution
      (qt6Packages.callPackage ../../modules/shared/discord-screenaudio { }) # temporary: awaiting official package # community patches for linux screen sharing
      bluez
@@ -338,12 +374,12 @@ in
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-    pinentryFlavor = "gnome3";
   };
 
   # Steamy
   programs.steam = {
     enable = true;
+    gamescopeSession.enable = true;
   };
 
   # Java
@@ -370,7 +406,7 @@ in
   services.openldap.enable = true;
   services.avahi = {
     enable = true;
-    nssmdns = true; # name-service-switch plug-in
+    nssmdns4 = true; # name-service-switch plug-in
     publish.userServices = true; # multi-user
   };
   services.udev = {
