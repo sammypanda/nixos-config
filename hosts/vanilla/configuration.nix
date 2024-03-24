@@ -345,6 +345,7 @@ in
      (qt6Packages.callPackage ../../modules/shared/discord-screenaudio { }) # temporary: awaiting official package # community patches for linux screen sharing
      bluez
      tmux
+     kdePackages.kcalc
   ];
 
   fonts = {
