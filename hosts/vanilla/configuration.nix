@@ -347,6 +347,7 @@ in
      bluez
      tmux
      kdePackages.kcalc
+     kdePackages.kclock
   ];
 
   fonts = {
