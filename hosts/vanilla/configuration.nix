@@ -277,6 +277,7 @@ in
       stable.gimp-with-plugins # image manipulation program
       pipecontrol
       quodlibet
+      mediainfo
     ];
   };
 
