@@ -69,4 +69,7 @@
   # Controllers
   hardware.steam-hardware.enable = true;
   hardware.i2c.enable = true;
+
+  # Bluetooth
+  hardware.bluetooth.enable = true;
 }
