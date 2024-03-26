@@ -349,6 +349,7 @@ in
      kdePackages.kcalc
      kdePackages.kclock
      kdePackages.korganizer
+     kdePackages.knotes
      mpv
   ];
 
