@@ -350,6 +350,7 @@ in
      kdePackages.kclock
      kdePackages.korganizer
      kdePackages.knotes
+     kdePackages.akonadi
      mpv
   ];
 
