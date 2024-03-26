@@ -348,6 +348,8 @@ in
      tmux
      kdePackages.kcalc
      kdePackages.kclock
+     kdePackages.korganizer
+     mpv
   ];
 
   fonts = {
