@@ -278,6 +278,7 @@ in
       pipecontrol
       quodlibet
       mediainfo
+      kdePackages.libkgapi # for access to google services (like google calendar)
     ];
   };
 
@@ -293,65 +294,78 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim
-     git
-     tldr
-     wineWowPackages.stableFull
-     wineWowPackages.waylandFull
-     wine-wayland
-     winetricks
-     wineWowPackages.fonts
-     samba4Full # for some reason required for some wine processes (ntlm_auth)
-     dosbox # wine
-     vulkan-loader # graphics + wine
-     libva # video acceleration
-     libxslt # xsl transforms
-     giflib # all about gifs
-     libpng # all about pngs
-     mpg123 # all about mpegs
-     libjpeg # all about jpegs
-     openal # cross platform 3d audio
-     v4l-utils # highly compatible video capture?
-     libpulseaudio # sound server (POSIX+Win32)
-     alsa-lib # advanced linux sound architecture
-     alsa-plugins # it is what it is :3
-     ncurses # emulating curses
-     ocl-icd # opencl icd loader (used in wine)
-     jansson # C library for JSON stuff (used in wine)
-     cups # lol (generic printing thing)
-     gnutls # gnu transport layer security
-     pinentry # required for gpg_agent
-     wineasio # ASIO -> JACK driver (wine)
-     rustup
-     wget
-     losslesscut-bin
-     ethtool
-     usbutils
-     vlc
-     unrar
-     soundconverter
-     neofetch
-     wlr-randr
-     easyeffects
-     radeontop
-     xwayland
-     podman
-     distrobox
-     glxinfo
-     mission-center # viewing all the stats
-     gpu-screen-recorder
-     libglvnd # potential openglFull dependency (GLES3)
-     libGL # bindings for libglvnd
-     avahi # mDNS resolution
-     (qt6Packages.callPackage ../../modules/shared/discord-screenaudio { }) # temporary: awaiting official package # community patches for linux screen sharing
-     bluez
-     tmux
-     kdePackages.kcalc
-     kdePackages.kclock
-     kdePackages.korganizer
-     kdePackages.knotes
-     kdePackages.akonadi
-     mpv
+    vim
+    git
+    tldr
+    wineWowPackages.stableFull
+    wineWowPackages.waylandFull
+    wine-wayland
+    winetricks
+    wineWowPackages.fonts
+    samba4Full # for some reason required for some wine processes (ntlm_auth)
+    dosbox # wine
+    vulkan-loader # graphics + wine
+    libva # video acceleration
+    libxslt # xsl transforms
+    giflib # all about gifs
+    libpng # all about pngs
+    mpg123 # all about mpegs
+    libjpeg # all about jpegs
+    openal # cross platform 3d audio
+    v4l-utils # highly compatible video capture?
+    libpulseaudio # sound server (POSIX+Win32)
+    alsa-lib # advanced linux sound architecture
+    alsa-plugins # it is what it is :3
+    ncurses # emulating curses
+    ocl-icd # opencl icd loader (used in wine)
+    jansson # C library for JSON stuff (used in wine)
+    cups # lol (generic printing thing)
+    gnutls # gnu transport layer security
+    pinentry # required for gpg_agent
+    wineasio # ASIO -> JACK driver (wine)
+    rustup
+    wget
+    losslesscut-bin
+    ethtool
+    usbutils
+    vlc
+    unrar
+    soundconverter
+    neofetch
+    wlr-randr
+    easyeffects
+    radeontop
+    xwayland
+    podman
+    distrobox
+    glxinfo
+    mission-center # viewing all the stats
+    gpu-screen-recorder
+    libglvnd # potential openglFull dependency (GLES3)
+    libGL # bindings for libglvnd
+    avahi # mDNS resolution
+    (qt6Packages.callPackage ../../modules/shared/discord-screenaudio { }) # temporary: awaiting official package # community patches for linux screen sharing
+    bluez
+    tmux
+    mpv
+    kdePackages.kcalc
+    kdePackages.kclock
+    kdePackages.korganizer
+    kdePackages.knotes
+    kdePackages.merkuro
+    kdePackages.akonadi
+    kdePackages.akonadi-calendar
+    kdePackages.akonadi-calendar-tools
+    kdePackages.akonadi-contacts
+    kdePackages.akonadi-import-wizard
+    kdePackages.akonadi-mime
+    kdePackages.akonadi-notes
+    kdePackages.akonadi-search
+    kdePackages.akonadiconsole
+    kdePackages.kaccounts-integration
+    kdePackages.kaccounts-providers
+    kdePackages.signond
+    kdePackages.kauth
   ];
 
   fonts = {
