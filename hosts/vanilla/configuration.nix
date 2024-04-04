@@ -302,7 +302,7 @@ in
     wine-wayland
     winetricks
     wineWowPackages.fonts
-    samba4Full # for some reason required for some wine processes (ntlm_auth)
+    stable.samba4Full # for some reason required for some wine processes (ntlm_auth)
     dosbox # wine
     vulkan-loader # graphics + wine
     libva # video acceleration
