@@ -280,6 +280,7 @@ in
       mediainfo
       kdePackages.libkgapi # for access to google services (like google calendar)
       kdePackages.kdenlive # video editor
+      handbrake # powerful tool/gui for working with video formats
     ];
   };
 
