@@ -8,7 +8,7 @@ let
   aagl-gtk-on-nix = import (builtins.fetchGit {
     url = "https://github.com/ezKEa/aagl-gtk-on-nix.git";
   });
-  stable = import <nixos> { config = { allowUnfree = true; }; };
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
   system = builtins.currentSystem;
   extensions = (import (builtins.fetchGit {
     url = "https://github.com/nix-community/nix-vscode-extensions";
@@ -259,7 +259,7 @@ in
       syncthing
       webcord-vencord
       retroarch
-      stable.yuzu-early-access
+      yuzu-early-access
       xdotool # for window swapping reasons (sunshine game streaming)
       vscode-extensions.redhat.java # good for mc plugin dev
       arrpc # for discord rich presence
@@ -274,7 +274,7 @@ in
       virt-manager # virtual machines
       beekeeper-studio # sql frontend
       kotatogram-desktop # telegram client
-      stable.gimp-with-plugins # image manipulation program
+      gimp-with-plugins # image manipulation program
       pipecontrol
       quodlibet
       mediainfo
@@ -304,7 +304,7 @@ in
     wine-wayland
     winetricks
     wineWowPackages.fonts
-    stable.samba4Full # for some reason required for some wine processes (ntlm_auth)
+    samba4Full # for some reason required for some wine processes (ntlm_auth)
     dosbox # wine
     vulkan-loader # graphics + wine
     libva # video acceleration
