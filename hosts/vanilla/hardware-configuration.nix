@@ -14,27 +14,27 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/5ff2e586-f3e7-4c84-8fc1-e57b47a64e04";
+    { device = "/dev/disk/by-label/root";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/E2BC-BC93";
+    { device = "/dev/disk/by-label/BOOT";
       fsType = "vfat";
     };
   
   fileSystems."/home/sammy/Storage" =
-    { device = "/dev/disk/by-uuid/5d3e63fe-6569-4e22-8189-cb6d111b7736";
+    { device = "/dev/disk/by-label/storage";
       fsType = "ext4";
     };
 
   fileSystems."/home/sammy/Speedy" =
-    { device = "/dev/disk/by-uuid/b78899c6-6879-4377-be34-81401402ce1b";
+    { device = "/dev/disk/by-label/speedy";
       fsType = "ext4";
     };
 
   fileSystems."/home/sammy/StorageBack" =
-    { device = "/dev/disk/by-uuid/4974deb5-b2e6-4c61-8fc7-cb026ffc0a0f";
+    { device = "/dev/disk/by-label/storageback";
       fsType = "ext4";
     };
 
