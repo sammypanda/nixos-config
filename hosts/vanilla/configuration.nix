@@ -74,15 +74,17 @@ in
 
   # Configure display/window/desktop
   services = {
+    displayManager = {
+      defaultSession = "plasma";
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+      };
+    };
+
     xserver = {
       enable = true;
       videoDrivers = [ "amdgpu" ];
-
-      displayManager = {
-        defaultSession = "plasma";
-        sddm.enable = true;
-        sddm.wayland.enable = true;
-      };
 
       # Configure keymap in X11
       xkb = {
