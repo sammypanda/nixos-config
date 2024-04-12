@@ -255,6 +255,7 @@ in
       anytype
       thunderbird
       quodlibet-full
+      deadbeef-with-plugins
       sunshine
       proton-caller
       syncthing
