@@ -256,6 +256,7 @@ in
       thunderbird
       quodlibet-full
       deadbeef-with-plugins
+      nuclear
       sunshine
       proton-caller
       syncthing
