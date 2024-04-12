@@ -228,7 +228,6 @@ in
       firefox
       floorp # fork of firefox
       nicotine-plus
-      discord
       lutris
       yt-dlp
       rhythmbox
@@ -257,7 +256,6 @@ in
       sunshine
       proton-caller
       syncthing
-      webcord-vencord
       retroarch
       stable.yuzu-early-access
       xdotool # for window swapping reasons (sunshine game streaming)
@@ -347,6 +345,7 @@ in
     libGL # bindings for libglvnd
     avahi # mDNS resolution
     (qt6Packages.callPackage ../../modules/shared/discord-screenaudio { }) # temporary: awaiting official package # community patches for linux screen sharing
+    vesktop # discord + vencord
     bluez
     bluez-alsa
     tmux
