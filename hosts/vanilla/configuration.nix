@@ -19,7 +19,14 @@ in
 {
   imports =
     [
+      # Config modules
       ./hardware-configuration.nix
+      
+      # Desktops
+      #./cosmic.nix
+      ./kde.nix
+
+      # Patches/apps
       ./pcloud.nix
       aagl-gtk-on-nix.module
     ];
@@ -74,14 +81,6 @@ in
 
   # Configure display/window/desktop
   services = {
-    displayManager = {
-      defaultSession = "plasma";
-      sddm = {
-        enable = true;
-        wayland.enable = true;
-      };
-    };
-
     xserver = {
       enable = true;
       videoDrivers = [ "amdgpu" ];
@@ -91,11 +90,6 @@ in
         layout = "au";
         variant = ""; 
       };
-    };
-
-    # Enable the KDE Desktop Environment.
-    desktopManager = {
-      plasma6.enable = true;
     };
   };
 
@@ -280,8 +274,6 @@ in
       pipecontrol
       quodlibet
       mediainfo
-      kdePackages.libkgapi # for access to google services (like google calendar)
-      kdePackages.kdenlive # video editor
       handbrake # powerful tool/gui for working with video formats
     ];
   };
@@ -354,24 +346,6 @@ in
     bluez-alsa
     tmux
     mpv
-    kdePackages.kcalc
-    kdePackages.kclock
-    kdePackages.korganizer
-    kdePackages.knotes
-    kdePackages.merkuro
-    kdePackages.akonadi
-    kdePackages.akonadi-calendar
-    kdePackages.akonadi-calendar-tools
-    kdePackages.akonadi-contacts
-    kdePackages.akonadi-import-wizard
-    kdePackages.akonadi-mime
-    kdePackages.akonadi-notes
-    kdePackages.akonadi-search
-    kdePackages.akonadiconsole
-    kdePackages.kaccounts-integration
-    kdePackages.kaccounts-providers
-    kdePackages.signond
-    kdePackages.kauth
   ];
 
   fonts = {
