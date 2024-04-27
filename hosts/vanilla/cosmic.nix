@@ -8,6 +8,7 @@
 
     # Available software that isn't enabled by default
     environment.systemPackages = with pkgs; [
+        xwayland # patchwork
         cosmic-design-demo
         cosmic-emoji-picker
         cosmic-protocols
