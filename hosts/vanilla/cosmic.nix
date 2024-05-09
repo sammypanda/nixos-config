@@ -13,5 +13,6 @@
         cosmic-emoji-picker
         cosmic-protocols
         cosmic-tasks
+        libsecret # storing secrets
     ];
 }
