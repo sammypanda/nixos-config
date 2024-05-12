@@ -275,6 +275,7 @@ in
       quodlibet
       mediainfo
       handbrake # powerful tool/gui for working with video formats
+      jellyfin-media-player # local network media player
     ];
   };
 
