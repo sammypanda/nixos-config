@@ -23,8 +23,8 @@ in
       ./hardware-configuration.nix
       
       # Desktops
-      ./cosmic.nix
-      #./kde.nix
+      #./cosmic.nix
+      ./kde.nix
 
       # Patches/apps
       ./pcloud.nix
