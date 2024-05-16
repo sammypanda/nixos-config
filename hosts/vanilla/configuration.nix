@@ -255,7 +255,7 @@ in
       proton-caller
       syncthing
       retroarch
-      stable.yuzu-early-access
+      #yuzu-early-access # taken down?
       xdotool # for window swapping reasons (sunshine game streaming)
       vscode-extensions.redhat.java # good for mc plugin dev
       arrpc # for discord rich presence
