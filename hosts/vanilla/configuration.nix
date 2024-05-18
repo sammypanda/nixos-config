@@ -248,7 +248,7 @@ in
       logseq
       anytype
       thunderbird
-      quodlibet-full
+      #quodlibet-full
       deadbeef-with-plugins
       nuclear
       sunshine
@@ -272,7 +272,6 @@ in
       kotatogram-desktop # telegram client
       stable.gimp-with-plugins # image manipulation program
       pipecontrol
-      quodlibet
       mediainfo
       handbrake # powerful tool/gui for working with video formats
       jellyfin-media-player # local network media player
