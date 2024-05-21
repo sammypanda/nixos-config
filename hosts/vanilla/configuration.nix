@@ -203,6 +203,7 @@ in
 	    vscodeExtensions = with pkgs; [
         pkgs.vscode-extensions.enkia.tokyo-night
         pkgs.vscode-extensions.redhat.java
+        pkgs.vscode-extensions.jnoortheen.nix-ide
         extensions.vscode-marketplace.leonardssh.vscord
 	      vscode-extensions.devsense.phptools-vscode
 	    ];
