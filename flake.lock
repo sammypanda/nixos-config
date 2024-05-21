@@ -126,7 +126,29 @@
       "inputs": {
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixos-cosmic": "nixos-cosmic",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "suyu": "suyu"
+      }
+    },
+    "suyu": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": "systems_2"
+      },
+      "locked": {
+        "lastModified": 1714727263,
+        "narHash": "sha256-R+x0UZrBedeR6w+h44JaGwuQJrut5VVD2yjNgYNt9f4=",
+        "ref": "refs/heads/master",
+        "rev": "4013bb63ca2217eab5c4a25e266d68d908b96791",
+        "revCount": 15,
+        "type": "git",
+        "url": "https://git.suyu.dev/suyu/nix-flake"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.suyu.dev/suyu/nix-flake"
       }
     },
     "systems": {
@@ -141,6 +163,21 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_2": {
+      "locked": {
+        "lastModified": 1689347949,
+        "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
+        "owner": "nix-systems",
+        "repo": "default-linux",
+        "rev": "31732fcf5e8fea42e59c2488ad31a0e651500f68",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default-linux",
         "type": "github"
       }
     }

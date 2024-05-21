@@ -10,23 +10,34 @@
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    suyu = {
+      url = "git+https://git.suyu.dev/suyu/nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nix-vscode-extensions, nixos-cosmic }:
+  outputs = { self, nixpkgs, nix-vscode-extensions, nixos-cosmic, suyu } @ inputs:
   let
     system = "x86_64-linux";
 
     pkgs = import nixpkgs {
       inherit system;
 
+      overlays = [self.overlays.default];
+
       config = {
         allowUnfree = true;
       };
     };
   in {
+    overlays.default = final: prev: {
+      suyu = inputs.suyu.packages."${system}".suyu;
+    };
+
     nixosConfigurations = {
       vanilla = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit system; };
+        specialArgs = { inherit system pkgs; };
 
         modules = [
           {
