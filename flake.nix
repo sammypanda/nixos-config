@@ -2,7 +2,7 @@
   description = "System flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/staging-next";
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 

@@ -249,7 +249,7 @@ in
       logseq
       anytype
       thunderbird
-      #quodlibet-full
+      quodlibet-full
       deadbeef-with-plugins
       nuclear
       sunshine
