@@ -5,9 +5,6 @@
 { config, pkgs, inputs, ... }:
 
 let
-  aagl-gtk-on-nix = import (builtins.fetchGit {
-    url = "https://github.com/ezKEa/aagl-gtk-on-nix.git";
-  });
   stable = import <nixos> { config = { allowUnfree = true; }; };
   system = builtins.currentSystem;
   extensions = (import (builtins.fetchGit {
@@ -28,7 +25,6 @@ in
 
       # Patches/apps
       ./pcloud.nix
-      aagl-gtk-on-nix.module
     ];
 
   # Bootloader.
