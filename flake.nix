@@ -4,6 +4,9 @@
   inputs = {
     nixpkgs.url = "nixpkgs/staging-next";
 
+    home-manager.url = "github:nix-community/home-manager"; # unstable
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
     nixos-cosmic = {
@@ -17,7 +20,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nix-vscode-extensions, nixos-cosmic, suyu } @ inputs:
+  outputs = { self, nixpkgs, nix-vscode-extensions, nixos-cosmic, home-manager, suyu } @ inputs:
   let
     system = "x86_64-linux";
 
@@ -47,6 +50,7 @@
             };
           }
           nixos-cosmic.nixosModules.default
+          home-manager.nixosModules.home-manager
           ./hosts/vanilla/configuration.nix
         ];
       };

@@ -193,22 +193,31 @@ in
       ];
     };
 
-    vscodium = pkgs.vscode-with-extensions.override {
-      vscode = pkgs.vscodium;
-
-	    vscodeExtensions = with pkgs; [
-        pkgs.vscode-extensions.enkia.tokyo-night
-        pkgs.vscode-extensions.redhat.java
-        pkgs.vscode-extensions.jnoortheen.nix-ide
-        extensions.vscode-marketplace.leonardssh.vscord
-	      vscode-extensions.devsense.phptools-vscode
-	    ];
-    };
-
     feishin = pkgs.feishin.override {
       version = "0.6.0";
 
       electron_24 = pkgs.electron_27;
+    };
+  };
+
+  # Home manager, the better way to define user account.
+  home-manager.users = {
+    sammy = {
+
+      home.stateVersion = "23.05";
+
+      # VSCodium
+      programs.vscode = {
+        enable = true;
+        package = pkgs.vscodium;
+        extensions = with pkgs; [
+          vscode-extensions.enkia.tokyo-night
+          vscode-extensions.redhat.java
+          vscode-extensions.jnoortheen.nix-ide
+          extensions.vscode-marketplace.leonardssh.vscord
+          vscode-extensions.devsense.phptools-vscode
+        ];
+      };
     };
   };
 
@@ -257,8 +266,7 @@ in
       vscode-extensions.redhat.java # good for mc plugin dev
       arrpc # for discord rich presence
       aseprite # pixel art!
-      steam-run # to launch steam games (sunshine game streaming) 
-      vscodium
+      steam-run # to launch steam games (sunshine game streaming)
       super-productivity # tracking tasks/hours
       teams-for-linux # Microsoft Teams
       sonixd # desktop subsonic player
