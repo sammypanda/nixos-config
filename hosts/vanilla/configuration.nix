@@ -391,7 +391,7 @@ in
   # Java
   programs.java = {
     enable = true;
-    package = pkgs.openjdk19;
+    package = pkgs.jdk22;
   };
 
   # ADB + etc

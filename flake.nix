@@ -2,7 +2,7 @@
   description = "System flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/staging-next";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
 
     home-manager.url = "github:nix-community/home-manager"; # unstable
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
