@@ -230,7 +230,6 @@ in
       firefox
       floorp # fork of firefox
       nicotine-plus
-      lutris
       yt-dlp
       rhythmbox
       stremio
@@ -298,11 +297,10 @@ in
     vim
     git
     tldr
-    wineWowPackages.stableFull
     wineWowPackages.waylandFull
-    wine-wayland
     winetricks
     wineWowPackages.fonts
+    lutris
     stable.samba4Full # for some reason required for some wine processes (ntlm_auth)
     dosbox # wine
     vulkan-loader # graphics + wine
@@ -351,6 +349,9 @@ in
     bluez-alsa
     tmux
     mpv
+    dxvk
+    vkd3d
+    freetype
   ];
 
   fonts = {
