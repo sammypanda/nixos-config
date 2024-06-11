@@ -260,7 +260,9 @@ in
       proton-caller
       syncthing
       retroarch
-      suyu # switch emulator
+      #suyu # switch emulator
+      ryujinx # performant switch emulator
+      dolphin-emu # gamecube/wii/triforce emulator
       xdotool # for window swapping reasons (sunshine game streaming)
       vscode-extensions.redhat.java # good for mc plugin dev
       arrpc # for discord rich presence
