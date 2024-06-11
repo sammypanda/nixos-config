@@ -18,9 +18,14 @@
       url = "git+https://git.suyu.dev/suyu/nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nook-desktop = {
+      url = "github:sammypanda/nixos-nook-desktop";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nix-vscode-extensions, nixos-cosmic, home-manager, suyu } @ inputs:
+  outputs = { self, nixpkgs, nix-vscode-extensions, nixos-cosmic, home-manager, suyu, nook-desktop } @ inputs:
   let
     system = "x86_64-linux";
 
@@ -36,6 +41,7 @@
   in {
     overlays.default = final: prev: {
       suyu = inputs.suyu.packages."${system}".suyu;
+      nook-desktop = inputs.nook-desktop.packages."${system}".default;
     };
 
     nixosConfigurations = {
