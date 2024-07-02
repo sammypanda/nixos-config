@@ -304,8 +304,6 @@ in
     winetricks
     wineWowPackages.fonts
     lutris
-    stable.samba4Full # for some reason required for some wine processes (ntlm_auth)
-    dosbox # wine
     vulkan-loader # graphics + wine
     libva # video acceleration
     libxslt # xsl transforms
@@ -355,6 +353,7 @@ in
     dxvk
     vkd3d
     freetype
+    nix-gaming.wine-ge # da best wine >:3
   ];
 
   fonts = {

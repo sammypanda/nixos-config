@@ -23,9 +23,20 @@
       url = "github:sammypanda/nixos-nook-desktop";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
-  outputs = { self, nixpkgs, nix-vscode-extensions, nixos-cosmic, home-manager, suyu, nook-desktop } @ inputs:
+  outputs = { 
+    self, 
+    nixpkgs, 
+    nix-vscode-extensions, 
+    nixos-cosmic, 
+    home-manager, 
+    suyu, 
+    nook-desktop, 
+    nix-gaming 
+  } @ inputs:
   let
     system = "x86_64-linux";
 
@@ -42,6 +53,7 @@
     overlays.default = final: prev: {
       suyu = inputs.suyu.packages."${system}".suyu;
       nook-desktop = inputs.nook-desktop.packages."${system}".default;
+      nix-gaming = inputs.nix-gaming.packages."${system}";
     };
 
     nixosConfigurations = {
