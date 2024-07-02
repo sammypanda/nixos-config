@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.05";
+    pkgs-staging.url = "github:nixos/nixpkgs/staging";
 
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -29,7 +30,8 @@
 
   outputs = { 
     self, 
-    nixpkgs, 
+    nixpkgs,
+    pkgs-staging,
     nix-vscode-extensions, 
     nixos-cosmic, 
     home-manager, 
@@ -58,7 +60,10 @@
 
     nixosConfigurations = {
       vanilla = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit system pkgs; };
+        specialArgs = { 
+          inherit system pkgs;
+          pkgs-staging = import pkgs-staging {}; 
+        };
 
         modules = [
           {

@@ -246,6 +246,22 @@
         "type": "github"
       }
     },
+    "pkgs-staging": {
+      "locked": {
+        "lastModified": 1719881755,
+        "narHash": "sha256-hXj4+bLUQqt9waYmtHIENIaVplCkUYuGVC0a05c1rP0=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "6f1a4f70fbf95298417a121905bfe6a40c24692a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "staging",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -254,6 +270,7 @@
         "nixos-cosmic": "nixos-cosmic",
         "nixpkgs": "nixpkgs_3",
         "nook-desktop": "nook-desktop",
+        "pkgs-staging": "pkgs-staging",
         "suyu": "suyu"
       }
     },

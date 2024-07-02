@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, pkgs-staging, inputs, ... }:
 
 let
   stable = import <nixos> { config = { allowUnfree = true; }; };
@@ -354,6 +354,7 @@ in
     vkd3d
     freetype
     nix-gaming.wine-ge # da best wine >:3
+    pkgs-staging.openssh
   ];
 
   fonts = {
