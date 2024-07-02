@@ -5,7 +5,6 @@
 { config, pkgs, pkgs-staging, inputs, ... }:
 
 let
-  stable = import <nixos> { config = { allowUnfree = true; }; };
   system = builtins.currentSystem;
   extensions = (import (builtins.fetchGit {
     url = "https://github.com/nix-community/nix-vscode-extensions";
@@ -276,7 +275,7 @@ in
       virt-manager # virtual machines
       beekeeper-studio # sql frontend
       kotatogram-desktop # telegram client
-      stable.gimp-with-plugins # image manipulation program
+      gimp-with-plugins # image manipulation program
       pipecontrol
       mediainfo
       handbrake # powerful tool/gui for working with video formats
