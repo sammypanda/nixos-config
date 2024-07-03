@@ -227,7 +227,6 @@ in
     extraGroups = [ "networkmanager" "wheel" "adbusers" ];
     packages = with pkgs; [
       firefox
-      floorp # fork of firefox
       nicotine-plus
       yt-dlp
       rhythmbox
