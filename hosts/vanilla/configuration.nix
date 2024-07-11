@@ -271,7 +271,6 @@ in
       ryujinx # performant switch emulator
       dolphin-emu # gamecube/wii/triforce emulator
       xdotool # for window swapping reasons (sunshine game streaming)
-      vscode-extensions.redhat.java # good for mc plugin dev
       arrpc # for discord rich presence
       aseprite # pixel art!
       steam-run # to launch steam games (sunshine game streaming)
