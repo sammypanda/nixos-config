@@ -6,12 +6,6 @@
 
 let
   system = builtins.currentSystem;
-  extensions = (import (builtins.fetchGit {
-    url = "https://github.com/nix-community/nix-vscode-extensions";
-    ref = "refs/heads/master";
-    rev = "c43d9089df96cf8aca157762ed0e2ddca9fcd71e";
-  })).extensions.${system};
-
   edid-samsung-q800t = pkgs-staging.runCommandNoCC "edid-samsung-q800t" { compressFirmware = false; } ''
     mkdir -p $out/lib/firmware/edid
     echo "AP///////wBMLUBwAA4AAQEeAQOApV14Cqgzq1BFpScNSEi974BxT4HAgQCBgJUAqcCzANHACOgAMPJwWoCwWIoAUB10AAAeb8IAoKCgVVAwIDUAUB10AAAaAAAA/QAYeA//dwAKICAgICAgAAAA/ABTQU1TVU5HCiAgICAgAW4CA2fwXWEQHwQTBRQgISJdXl9gZWZiZD9AdXba28LDxMbHLAkHBxUHUFcHAGdUAIMBAADiAE/jBcMBbgMMAEAAmDwoAIABAgMEbdhdxAF4gFkCAADBNAvjBg0B5Q8B4PAf5QGLhJABb8IAoKCgVVAwIDUAUB10AAAaAAAAAAAAZw==" | base64 -d > "$out/lib/firmware/edid/samsung-q800t-hdmi2.1"

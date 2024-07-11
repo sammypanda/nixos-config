@@ -56,6 +56,7 @@
       suyu = inputs.suyu.packages."${system}".suyu;
       nook-desktop = inputs.nook-desktop.packages."${system}".default;
       nix-gaming = inputs.nix-gaming.packages."${system}";
+      extensions = inputs.nix-vscode-extensions.extensions.${system};
     };
 
     nixosConfigurations = {
