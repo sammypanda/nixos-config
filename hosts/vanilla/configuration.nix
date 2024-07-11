@@ -224,6 +224,7 @@ in
           vscode-extensions.jnoortheen.nix-ide
           extensions.vscode-marketplace.leonardssh.vscord
           vscode-extensions.devsense.phptools-vscode
+          extensions.vscode-marketplace.trag1c.gleam-theme
         ];
       };
     };
