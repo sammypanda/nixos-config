@@ -264,7 +264,6 @@ in
       quodlibet-full
       deadbeef-with-plugins
       nuclear
-      sunshine
       proton-caller
       syncthing
       retroarch
@@ -295,6 +294,14 @@ in
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # Sunshine capture
+  security.wrappers.sunshine = {
+    owner = "root";
+    group = "root";
+    capabilities = "cap_sys_admin+p";
+    source = "${pkgs.sunshine}/bin/sunshine";
+  };
   
   # Allow EOL packages
   nixpkgs.config.permittedInsecurePackages = [
@@ -308,6 +315,7 @@ in
     vim
     git
     tldr
+    nix-gaming.wine-ge # better wine >:3
     wineWowPackages.waylandFull
     winetricks
     wineWowPackages.fonts
@@ -361,8 +369,8 @@ in
     dxvk
     vkd3d
     freetype
-    nix-gaming.wine-ge # da best wine >:3
     pkgs-staging.openssh
+    sunshine
   ];
 
   fonts = {
@@ -425,12 +433,14 @@ in
   services.avahi = {
     enable = true;
     nssmdns4 = true; # name-service-switch plug-in
+    publish.enable = true;
     publish.userServices = true; # multi-user
   };
   services.udev = {
     packages = [
       pkgs.android-udev-rules
       pkgs.openrgb
+      pkgs.sunshine
     ];
   };
 
@@ -457,6 +467,8 @@ in
     allowedUDPPortRanges = [
       { from = 2234; to = 2239; }
       { from = 1716; to = 1764; }
+      { from = 47998; to = 48000; }
+      { from = 8000; to = 8010; }
     ];
     # Or disable the firewall altogether.
     enable = false;

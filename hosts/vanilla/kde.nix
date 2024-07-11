@@ -41,5 +41,6 @@
         kdePackages.kaccounts-providers
         kdePackages.signond
         kdePackages.kauth
+        kdePackages.libkscreen # screen management
     ];
 }
