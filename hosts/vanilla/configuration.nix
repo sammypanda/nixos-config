@@ -282,6 +282,7 @@ in
       handbrake # powerful tool/gui for working with video formats
       jellyfin-media-player # local network media player
       nook-desktop # plays animal crossing music / grandfather clock; time management/productivity
+      pcsx2 # ps2 emu
     ];
   };
 
