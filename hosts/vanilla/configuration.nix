@@ -283,6 +283,7 @@ in
       jellyfin-media-player # local network media player
       nook-desktop # plays animal crossing music / grandfather clock; time management/productivity
       pcsx2 # ps2 emu
+      cartridges # show all ur gamies
     ];
   };
 
