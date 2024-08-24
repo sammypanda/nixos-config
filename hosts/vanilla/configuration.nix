@@ -366,6 +366,7 @@ in
     freetype
     pkgs-staging.openssh
     sunshine
+    kdePackages.qtstyleplugin-kvantum
   ];
 
   fonts = {
