@@ -445,7 +445,7 @@ in
       HSA_OVERRIDE_GFX_VERSION="10.3.0";
     };
     host = "0.0.0.0";
-    port = "11434";
+    port = 11434;
   };
 
   # Enable virtualisation
