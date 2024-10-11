@@ -2,6 +2,7 @@
   description = "System flake";
 
   inputs = {
+    pkgs-24_05.url = "nixpkgs/nixos-24.05";
     nixpkgs.url = "nixpkgs/nixos-unstable";
     pkgs-staging.url = "github:nixos/nixpkgs/staging";
 
@@ -30,6 +31,7 @@
 
   outputs = { 
     self, 
+    pkgs-24_05,
     nixpkgs,
     pkgs-staging,
     nix-vscode-extensions, 

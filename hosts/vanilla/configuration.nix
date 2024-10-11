@@ -243,7 +243,7 @@ in
       kid3
       rsgain
       gparted
-      transmission-gtk
+      pkgs-24_05.transmission-qt # version 3.0.0
       wpsoffice
       libreoffice
       goffice
