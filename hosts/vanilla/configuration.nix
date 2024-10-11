@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs-staging, inputs, ... }:
+{ config, pkgs, pkgs-staging, pkgs-24_05, inputs, ... }:
 
 let
   system = builtins.currentSystem;

@@ -72,7 +72,8 @@
       vanilla = nixpkgs.lib.nixosSystem {
         specialArgs = { 
           inherit system pkgs;
-          pkgs-staging = import pkgs-staging {}; 
+          pkgs-staging = import pkgs-staging {};
+          pkgs-24_05 = import pkgs-24_05 {};
         };
 
         modules = [
