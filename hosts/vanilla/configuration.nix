@@ -403,7 +403,7 @@ in
   # Java
   programs.java = {
     enable = true;
-    package = pkgs-staging.jdk23;
+    package = pkgs-staging.openjdk;
   };
 
   # ADB + etc
