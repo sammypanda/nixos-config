@@ -362,6 +362,7 @@ in
     pkgs-staging.openssh
     sunshine
     kdePackages.qtstyleplugin-kvantum
+    steamtinkerlaunch # more detailed steam game config
   ];
 
   fonts = {
