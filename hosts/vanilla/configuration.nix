@@ -363,6 +363,7 @@ in
     sunshine
     kdePackages.qtstyleplugin-kvantum
     steamtinkerlaunch # more detailed steam game config
+    pkgs-staging.deno # version 2.0.0
   ];
 
   fonts = {
