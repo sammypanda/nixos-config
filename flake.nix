@@ -49,6 +49,13 @@
 
       config = {
         allowUnfree = true;
+        
+        # Allow EOL packages
+        permittedInsecurePackages = [
+          "electron-25.9.0"
+          "electron-24.8.6"
+          "electron-27.3.11"
+        ];
       };
     };
   in {
