@@ -26,7 +26,7 @@
         kdePackages.kcalc
         kdePackages.kclock
         kdePackages.korganizer
-        kdePackages.knotes
+        libsForQt5.knotes
         kdePackages.merkuro
         kdePackages.akonadi
         kdePackages.akonadi-calendar

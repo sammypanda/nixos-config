@@ -95,7 +95,6 @@ in
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   security.polkit.enable = true;
@@ -303,6 +302,7 @@ in
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
     "electron-24.8.6"
+    "electron-27.3.11"
   ];
 
   # List packages installed in system profile. To search, run:
@@ -439,6 +439,18 @@ in
       pkgs.openrgb
       pkgs.sunshine
     ];
+  };
+  services.ollama = {
+    enable = true;
+    acceleration = "rocm";
+    environmentVariables = {
+      ROC_ENABLE_PRE_VEGA = "1";
+      OLLAMA_HOST = "0.0.0.0:11434";
+      HCC_AMDGPU_TARGET = "gfx1032";
+      HSA_OVERRIDE_GFX_VERSION="10.3.0";
+    };
+    host = "0.0.0.0";
+    port = "11434";
   };
 
   # Enable virtualisation

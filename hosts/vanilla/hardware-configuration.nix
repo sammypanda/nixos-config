@@ -56,17 +56,13 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   # OpenGL
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   # OpenCL
-  hardware.opengl.extraPackages = with pkgs; [
+  hardware.graphics.extraPackages = with pkgs; [
     rocmPackages.clr.icd
     rocmPackages.clr
   ];
-
-  # Vulkan
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
 
   # Controllers
   hardware.steam-hardware.enable = true;

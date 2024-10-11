@@ -2,10 +2,10 @@
   description = "System flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.05";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     pkgs-staging.url = "github:nixos/nixpkgs/staging";
 
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
