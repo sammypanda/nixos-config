@@ -219,6 +219,7 @@ in
           vscode-extensions.devsense.phptools-vscode
           extensions.vscode-marketplace.trag1c.gleam-theme
           vscode-extensions.betterthantomorrow.calva
+          vscode-extensions.arrterian.nix-env-selector
         ];
       };
     };
