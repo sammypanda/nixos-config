@@ -286,6 +286,7 @@ in
       pcsx2 # ps2 emu
       cartridges # show all ur gamies
       xivlauncher
+      pomodoro-gtk # working timer
     ];
   };
 
