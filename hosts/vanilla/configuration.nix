@@ -275,7 +275,7 @@ in
       feishin # desktop navidrome player
       openrgb-with-all-plugins # controlling the colours!!
       virt-manager # virtual machines
-      beekeeper-studio # sql frontend
+      antares # sql frontend
       kotatogram-desktop # telegram client
       gimp-with-plugins # image manipulation program
       pipecontrol
