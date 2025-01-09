@@ -6,7 +6,7 @@
 
 let
   system = builtins.currentSystem;
-  edid-samsung-q800t = pkgs-staging.runCommandNoCC "edid-samsung-q800t" { compressFirmware = false; } ''
+  edid-samsung-q800t = pkgs.runCommandNoCC "edid-samsung-q800t" { compressFirmware = false; } ''
     mkdir -p $out/lib/firmware/edid
     echo "AP///////wBMLUBwAA4AAQEeAQOApV14Cqgzq1BFpScNSEi974BxT4HAgQCBgJUAqcCzANHACOgAMPJwWoCwWIoAUB10AAAeb8IAoKCgVVAwIDUAUB10AAAaAAAA/QAYeA//dwAKICAgICAgAAAA/ABTQU1TVU5HCiAgICAgAW4CA2fwXWEQHwQTBRQgISJdXl9gZWZiZD9AdXba28LDxMbHLAkHBxUHUFcHAGdUAIMBAADiAE/jBcMBbgMMAEAAmDwoAIABAgMEbdhdxAF4gFkCAADBNAvjBg0B5Q8B4PAf5QGLhJABb8IAoKCgVVAwIDUAUB10AAAaAAAAAAAAZw==" | base64 -d > "$out/lib/firmware/edid/samsung-q800t-hdmi2.1"
   '';
@@ -95,7 +95,7 @@ in
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   security.polkit.enable = true;
   services.pipewire = {
@@ -277,7 +277,7 @@ in
       virt-manager # virtual machines
       antares # sql frontend
       kotatogram-desktop # telegram client
-      gimp-with-plugins # image manipulation program
+      gimp # image manipulation program
       pipecontrol
       mediainfo
       handbrake # powerful tool/gui for working with video formats
@@ -361,11 +361,11 @@ in
     dxvk
     vkd3d
     freetype
-    pkgs-staging.openssh
+    openssh
     sunshine
     kdePackages.qtstyleplugin-kvantum
     steamtinkerlaunch # more detailed steam game config
-    pkgs-staging.deno # version 2.0.0
+    deno # version 2.0.0
   ];
 
   fonts = {
@@ -406,7 +406,7 @@ in
   # Java
   programs.java = {
     enable = true;
-    package = pkgs-staging.openjdk;
+    package = pkgs.openjdk;
   };
 
   # ADB + etc
