@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs-staging, pkgs-24_05, inputs, ... }:
+{ config, pkgs, pkgs-unstable, pkgs-24_05, inputs, ... }:
 
 let
   system = builtins.currentSystem;
@@ -95,7 +95,7 @@ in
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
+  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   security.polkit.enable = true;
   services.pipewire = {

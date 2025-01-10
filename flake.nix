@@ -3,8 +3,8 @@
 
   inputs = {
     pkgs-24_05.url = "nixpkgs/nixos-24.05";
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-    pkgs-staging.url = "github:nixos/nixpkgs/staging";
+    nixpkgs.url = "nixpkgs/nixos-24.11";
+    unstable.url = "nixpkgs/nixos-unstable";
 
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -33,7 +33,7 @@
     self, 
     pkgs-24_05,
     nixpkgs,
-    pkgs-staging,
+    unstable,
     nix-vscode-extensions, 
     nixos-cosmic, 
     home-manager, 
@@ -72,7 +72,7 @@
       vanilla = nixpkgs.lib.nixosSystem {
         specialArgs = { 
           inherit system pkgs;
-          pkgs-staging = import pkgs-staging {};
+          pkgs-unstable = import unstable {};
           pkgs-24_05 = import pkgs-24_05 {};
         };
 
