@@ -36,24 +36,24 @@
 
   # A function of one argument that takes an attribute set of all the realized inputs, and outputs another attribute set.
   outputs = { self, nixpkgs, ... } @ inputs:
-    let
-      overlays.default = final: prev: {
-        suyu = inputs.suyu.packages."${prev.system}".suyu;
-        arnis = inputs.arnis.packages."${prev.system}".default;
-        nook-desktop = inputs.nook-desktop.packages."${prev.system}".default;
-        nix-gaming = inputs.nix-gaming.packages."${prev.system}";
-        extensions = inputs.nix-vscode-extensions.extensions.${prev.system};
-      };
-    in {
-      nixosConfigurations = {
-        vanilla = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          
-          modules = [
-            { nixpkgs.overlays = [ overlays.default ]; }
-            ./hosts/vanilla/configuration.nix
-          ];
-        };
+  let
+    overlays.default = final: prev: {
+      suyu = inputs.suyu.packages."${prev.system}".suyu;
+      arnis = inputs.arnis.packages."${prev.system}".default;
+      nook-desktop = inputs.nook-desktop.packages."${prev.system}".default;
+      nix-gaming = inputs.nix-gaming.packages."${prev.system}";
+      extensions = inputs.nix-vscode-extensions.extensions.${prev.system};
+    };
+  in {
+    nixosConfigurations = {
+      vanilla = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        
+        modules = [
+          { nixpkgs.overlays = [ overlays.default ]; }
+          ./hosts/vanilla/configuration.nix
+        ];
       };
     };
+  };
 }
