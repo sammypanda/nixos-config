@@ -283,6 +283,7 @@ in
       handbrake # powerful tool/gui for working with video formats
       jellyfin-media-player # local network media player
       nook-desktop # plays animal crossing music / grandfather clock; time management/productivity
+      arnis # cool tool that generates minecraft worlds from real geospatial data
       pcsx2 # ps2 emu
       cartridges # show all ur gamies
       xivlauncher

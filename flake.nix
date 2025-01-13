@@ -26,6 +26,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    arnis = {
+      url = "github:sammypanda/nixos-arnis";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
@@ -39,6 +44,7 @@
     home-manager, 
     suyu, 
     nook-desktop, 
+    arnis,
     nix-gaming 
   } @ inputs:
   let
@@ -63,6 +69,7 @@
   in {
     overlays.default = final: prev: {
       suyu = inputs.suyu.packages."${system}".suyu;
+      arnis = inputs.arnis.packages."${system}".default;
       nook-desktop = inputs.nook-desktop.packages."${system}".default;
       nix-gaming = inputs.nix-gaming.packages."${system}";
       extensions = inputs.nix-vscode-extensions.extensions.${system};
