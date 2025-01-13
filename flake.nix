@@ -37,6 +37,8 @@
   # A function of one argument that takes an attribute set of all the realized inputs, and outputs another attribute set.
   outputs = { self, nixpkgs, ... } @ inputs:
   let
+    # Overlays are Nix functions which accept ``final`` (after) and ``prev`` (before), 
+    # and return a set of packages.
     overlays.default = final: prev: {
       suyu = inputs.suyu.packages."${prev.system}".suyu;
       arnis = inputs.arnis.packages."${prev.system}".default;
@@ -50,6 +52,7 @@
         system = "x86_64-linux";
         
         modules = [
+          # Applying the overlays defined above
           { nixpkgs.overlays = [ overlays.default ]; }
           ./hosts/vanilla/configuration.nix
         ];
