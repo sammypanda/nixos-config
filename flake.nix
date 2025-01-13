@@ -35,7 +35,7 @@
   };
 
   # A function of one argument that takes an attribute set of all the realized inputs, and outputs another attribute set.
-  outputs = { self, nixpkgs } @ inputs:
+  outputs = { self, nixpkgs, ... } @ inputs:
     let
       overlays.default = final: prev: {
         suyu = inputs.suyu.packages."${prev.system}".suyu;
@@ -50,7 +50,7 @@
           system = "x86_64-linux";
           
           modules = [
-            ({ system }: { nixpkgs.overlays = [ overlays.default ]; })
+            { nixpkgs.overlays = [ overlays.default ]; }
             ./hosts/vanilla/configuration.nix
           ];
         };
