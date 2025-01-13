@@ -49,12 +49,16 @@
     };
   in {
     nixosConfigurations = {
+      # [Host name] = Method to define a NixOS system
       vanilla = nixpkgs.lib.nixosSystem {
+        # The system architecture for pkgs to build for
         system = "x86_64-linux";
         
         modules = [
           # Applying the overlays defined above
           { nixpkgs.overlays = [ overlays.default ]; }
+
+          # Path to the configuration for this host
           ./hosts/vanilla/configuration.nix
         ];
       };
