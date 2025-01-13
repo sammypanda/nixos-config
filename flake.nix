@@ -40,6 +40,7 @@
     # Overlays are Nix functions which accept ``final`` (after) and ``prev`` (before), 
     # and return a set of packages.
     overlays.default = final: prev: {
+      # [Name of the package] = [Path to the flake for the package]
       suyu = inputs.suyu.packages."${prev.system}".suyu;
       arnis = inputs.arnis.packages."${prev.system}".default;
       nook-desktop = inputs.nook-desktop.packages."${prev.system}".default;
