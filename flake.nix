@@ -17,6 +17,7 @@
   # An attribute set of all the dependencies of the flake.
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager";
 
     # COMMUNITY: Switch emulator package
     suyu.url = "git+https://git.suyu.dev/suyu/nix-flake";
@@ -35,7 +36,7 @@
   };
 
   # A function of one argument that takes an attribute set of all the realized inputs, and outputs another attribute set.
-  outputs = { self, nixpkgs, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
   let
     # Overlays are Nix functions which accept ``final`` (after) and ``prev`` (before), 
     # and return a set of packages.
@@ -46,6 +47,10 @@
       nook-desktop = inputs.nook-desktop.packages."${prev.system}".default;
       nix-gaming = inputs.nix-gaming.packages."${prev.system}";
       extensions = inputs.nix-vscode-extensions.extensions.${prev.system};
+      feishin = nixpkgs.feishin.override {
+        version = "0.6.0"; # clamp to this version and..
+        electron_24 = nixpkgs.electron_27; # use this electron version instead
+      };
     };
 
     # Define the list of machines to recurse
@@ -54,6 +59,6 @@
     ];
   in {
     # Generate configurations for every machine
-    nixosConfigurations = import ./helpers/genConfigurations.nix { inherit machines nixpkgs overlays; };
+    nixosConfigurations = import ./helpers/genConfigurations.nix { inherit machines nixpkgs overlays home-manager; };
   };
 }
