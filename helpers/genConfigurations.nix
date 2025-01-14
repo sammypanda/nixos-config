@@ -7,8 +7,23 @@
       system = machine.arch;
 
       modules = [
-        { nixpkgs.config.allowUnfree = true; }
+        # Configure nixpkgs
+        { 
+          nixpkgs.config = {
+            # Allow unfree stuff :(
+            allowUnfree = true; 
+
+            # Allow some deprecated packages
+            permittedInsecurePackages = [
+              "electron-27.3.11"
+            ];
+          };
+        }
+
+        # Apply overlays and add extra packages
         { nixpkgs.overlays = [ overlays.default ]; }
+
+        # Load machines
         ../machines/configurationDefault.nix
         ../machines/${machine.name}/configuration.nix
         ../machines/${machine.name}/configurationHardware.nix
