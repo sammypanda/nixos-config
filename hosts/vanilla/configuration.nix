@@ -275,7 +275,6 @@ in
       feishin # desktop navidrome player
       openrgb-with-all-plugins # controlling the colours!!
       virt-manager # virtual machines
-      antares # sql frontend
       kotatogram-desktop # telegram client
       gimp # image manipulation program
       pipecontrol
@@ -288,6 +287,9 @@ in
       cartridges # show all ur gamies
       xivlauncher
       pomodoro-gtk # working timer
+      dbgate # database manager (backup)
+      beekeeper-studio # database manager (backup)
+      antares # database manager
     ];
   };
 
