@@ -253,7 +253,7 @@ in
       android-tools
       appimage-run
       caddy
-      logseq
+      # logseq # TODO: dilapidated software, wait for update
       anytype
       thunderbird
       quodlibet-full
