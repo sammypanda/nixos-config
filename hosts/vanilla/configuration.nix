@@ -244,7 +244,7 @@ in
       kid3
       rsgain
       gparted
-      pkgs-24_05.transmission-qt # version 3.0.0
+      (transmission_3.override { enableQt = true; })
       wpsoffice
       libreoffice
       goffice
