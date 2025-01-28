@@ -77,7 +77,11 @@
       vanilla = nixpkgs.lib.nixosSystem {
         specialArgs = { 
           inherit system pkgs;
-          pkgs-unstable = import unstable {};
+          pkgs-unstable = import unstable {
+            config = {
+              allowUnfree = true;
+            };
+          };
           pkgs-24_05 = import pkgs-24_05 {};
         };
 

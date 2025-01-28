@@ -21,8 +21,7 @@ in
       #./cosmic.nix
       ./kde.nix
 
-      # Patches/apps
-      ./pcloud.nix
+      # Patches/apps (none)
     ];
 
   # Bootloader.
@@ -290,6 +289,7 @@ in
       dbgate # database manager (backup)
       beekeeper-studio # database manager (backup)
       antares # database manager
+      pkgs-unstable.pcloud # cloud storage
     ];
   };
 
