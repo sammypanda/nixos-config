@@ -19,7 +19,8 @@ in
       
       # Desktops
       #./cosmic.nix
-      ./kde.nix
+      #./kde.nix
+      ./gnome.nix
 
       # Patches/apps (none)
     ];
