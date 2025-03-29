@@ -6,10 +6,6 @@
 
 let
   system = builtins.currentSystem;
-  edid-samsung-q800t = pkgs.runCommandNoCC "edid-samsung-q800t" { compressFirmware = false; } ''
-    mkdir -p $out/lib/firmware/edid
-    echo "AP///////wBMLUBwAA4AAQEeAQOApV14Cqgzq1BFpScNSEi974BxT4HAgQCBgJUAqcCzANHACOgAMPJwWoCwWIoAUB10AAAeb8IAoKCgVVAwIDUAUB10AAAaAAAA/QAYeA//dwAKICAgICAgAAAA/ABTQU1TVU5HCiAgICAgAW4CA2fwXWEQHwQTBRQgISJdXl9gZWZiZD9AdXba28LDxMbHLAkHBxUHUFcHAGdUAIMBAADiAE/jBcMBbgMMAEAAmDwoAIABAgMEbdhdxAF4gFkCAADBNAvjBg0B5Q8B4PAf5QGLhJABb8IAoKCgVVAwIDUAUB10AAAaAAAAAAAAZw==" | base64 -d > "$out/lib/firmware/edid/samsung-q800t-hdmi2.1"
-  '';
 in
 {
   imports =
@@ -29,10 +25,7 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.kernelModules = [ "amdgpu" ];
-  boot.kernelModules = [ "v4l2loopback" "i2c-dev" ]; 
-  
-  boot.kernelParams = [ "drm.edid_firmware=HDMI-A-3:edid/samsung-q800t-hdmi2.1" "video=HDMI-A-3:e" ]; 
-  hardware.firmware = [ edid-samsung-q800t ]; 
+  boot.kernelModules = [ "v4l2loopback" "i2c-dev" ];
 
   boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
   boot.supportedFilesystems = [ "ntfs" ];
