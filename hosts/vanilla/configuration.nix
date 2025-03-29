@@ -224,7 +224,7 @@ in
     description = "sammy";
     extraGroups = [ "networkmanager" "wheel" "adbusers" ];
     packages = with pkgs; [
-      firefox
+      waterfox
       nicotine-plus
       yt-dlp
       rhythmbox
