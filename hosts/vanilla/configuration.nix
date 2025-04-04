@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs-unstable, pkgs-24_05, inputs, ... }:
+{ config, pkgs, pkgs-unstable, pkgs-24_05, pkgs-waterfox, inputs, ... }:
 
 let
   system = builtins.currentSystem;
@@ -224,7 +224,6 @@ in
     description = "sammy";
     extraGroups = [ "networkmanager" "wheel" "adbusers" ];
     packages = with pkgs; [
-      waterfox
       nicotine-plus
       yt-dlp
       rhythmbox
@@ -284,6 +283,7 @@ in
       beekeeper-studio # database manager (backup)
       antares # database manager
       pkgs-unstable.pcloud # cloud storage
+      pkgs-waterfox.waterfox # browser (not merged yet)
     ];
   };
 
@@ -363,6 +363,7 @@ in
     kdePackages.qtstyleplugin-kvantum
     steamtinkerlaunch # more detailed steam game config
     deno # version 2.0.0
+    qemu # emulator
   ];
 
   fonts = {

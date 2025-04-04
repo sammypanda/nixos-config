@@ -5,6 +5,7 @@
     pkgs-24_05.url = "nixpkgs/nixos-24.05";
     nixpkgs.url = "nixpkgs/nixos-24.11";
     unstable.url = "nixpkgs/nixos-unstable";
+    pkgs-waterfox.url = "github:joyfulcat/nixpkgs/waterfox-init";
 
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -37,6 +38,7 @@
   outputs = { 
     self, 
     pkgs-24_05,
+    pkgs-waterfox,
     nixpkgs,
     unstable,
     nix-vscode-extensions, 
@@ -83,6 +85,7 @@
             };
           };
           pkgs-24_05 = import pkgs-24_05 {};
+          pkgs-waterfox = import pkgs-waterfox {};
         };
 
         modules = [
