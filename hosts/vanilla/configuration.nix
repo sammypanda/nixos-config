@@ -213,6 +213,8 @@ in
           extensions.vscode-marketplace.trag1c.gleam-theme
           vscode-extensions.betterthantomorrow.calva
           vscode-extensions.arrterian.nix-env-selector
+          vscode-extensions.vscjava.vscode-java-debug
+          vscode-extensions.vscjava.vscode-maven
         ];
       };
     };
