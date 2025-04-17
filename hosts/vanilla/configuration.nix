@@ -247,7 +247,7 @@ in
       android-tools
       appimage-run
       caddy
-      # logseq # TODO: dilapidated software, wait for update
+      anytype # PKM software
       anytype
       thunderbird
       quodlibet-full
