@@ -286,6 +286,7 @@ in
       antares # database manager
       pkgs-unstable.pcloud # cloud storage
       pkgs-waterfox.waterfox # browser (not merged yet)
+      kdenlive
     ];
   };
 
