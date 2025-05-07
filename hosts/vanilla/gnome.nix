@@ -23,14 +23,14 @@
 
     # Apps for cohesive experience
     environment.systemPackages = with pkgs; [
-        gnome.adwaita-icon-theme
+        adwaita-icon-theme
         gnomeExtensions.appindicator
         sysprof
         gnome-tweaks
     ];
 
     services.udev.packages = with pkgs; [ 
-        gnome.gnome-settings-daemon
+        gnome-settings-daemon
     ];
 
     services.dbus.packages = with pkgs; [ 

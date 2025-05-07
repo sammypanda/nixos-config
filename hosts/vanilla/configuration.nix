@@ -284,7 +284,7 @@ in
       dbgate # database manager (backup)
       beekeeper-studio # database manager (backup)
       antares # database manager
-      pkgs-unstable.pcloud # cloud storage
+      pcloud # cloud storage
       pkgs-waterfox.waterfox # browser (not merged yet)
       kdenlive
     ];
